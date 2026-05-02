@@ -8,7 +8,7 @@ import { Footer } from '@/components/sections/Footer';
 import { projects } from '@/data/projects';
 import { Badge } from '@/components/ui/Badge';
 import { pt } from '@/locales/pt';
-import { ExternalLink, Github, ArrowLeft, Terminal, Layout, ShieldCheck } from 'lucide-react';
+import { ExternalLink, Github, ArrowLeft, Terminal, Layout, ShieldCheck, Brain } from 'lucide-react';
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -120,8 +120,36 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <Layout className="w-6 h-6 text-brand-primary" />
                 {t.architecture}
               </h2>
-              <div className="prose prose-invert max-w-none text-slate-400 space-y-4">
-                <p>{project.fullDescription}</p>
+              <div className="prose prose-invert max-w-none text-slate-400 space-y-8">
+                <div>
+                  <h3 className="text-white font-bold mb-2">Resumo</h3>
+                  <p>{project.fullDescription}</p>
+                </div>
+                
+                {project.architecture && (
+                  <div>
+                    <h3 className="text-white font-bold mb-2">Arquitetura</h3>
+                    <p>{project.architecture}</p>
+                  </div>
+                )}
+
+                {project.challenges && (
+                  <div>
+                    <h3 className="text-white font-bold mb-2">Desafios</h3>
+                    <p>{project.challenges}</p>
+                  </div>
+                )}
+
+                {project.aiIntegration && (
+                  <div className="p-4 rounded-xl bg-brand-primary/10 border border-brand-primary/20">
+                    <h3 className="text-brand-primary font-bold mb-2 flex items-center gap-2">
+                      <Brain className="w-4 h-4" />
+                      Integração de IA
+                    </h3>
+                    <p className="text-sm">{project.aiIntegration}</p>
+                  </div>
+                )}
+
                 <ul className="list-disc pl-5 space-y-2">
                   {project.highlights.map((h, i) => <li key={i}>{h}</li>)}
                 </ul>

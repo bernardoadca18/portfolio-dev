@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Badge } from './Badge';
-import { Project } from '@/data/projects';
+import { Project } from '@/types';
 import { ArrowUpRight } from 'lucide-react';
 import { pt } from '@/locales/pt';
 

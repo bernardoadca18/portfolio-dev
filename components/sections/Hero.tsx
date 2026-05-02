@@ -3,12 +3,13 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { pt } from '@/locales/pt';
+import { useTranslation } from '@/context/LanguageContext';
 import { ChevronRight, Download } from 'lucide-react';
 import Link from 'next/link';
 
 export const Hero = () => {
-  const t = pt.hero;
+  const { t } = useTranslation();
+  const heroT = t.hero;
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
@@ -22,25 +23,25 @@ export const Hero = () => {
         className="max-w-3xl"
       >
         <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider uppercase border rounded-full bg-white/5 border-white/10 text-brand-secondary">
-          {t.greeting}
+          {heroT.greeting}
         </span>
         
         <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-7xl">
-          {t.name.split(' ')[0]} <span className="text-gradient">{t.name.split(' ').slice(1).join(' ')}</span>
+          {heroT.name.split(' ')[0]} <span className="text-gradient">{heroT.name.split(' ').slice(1).join(' ')}</span>
         </h1>
         
         <p className="mb-10 text-lg text-slate-400 md:text-xl">
-          {t.description}
+          {heroT.description}
         </p>
         
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link href="/projects" className="group flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white transition-all rounded-full bg-brand-primary hover:bg-brand-primary/80">
-            {t.cta_projects}
+            {heroT.cta_projects}
             <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
           
           <button className="flex items-center gap-2 px-8 py-4 text-sm font-semibold transition-all rounded-full border border-white/10 bg-white/5 hover:bg-white/10">
-            {t.cta_cv}
+            {heroT.cta_cv}
             <Download className="w-4 h-4" />
           </button>
         </div>

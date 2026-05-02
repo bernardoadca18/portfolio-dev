@@ -1,23 +1,6 @@
 // File: src/data/projects.ts
 
-export interface Project {
-  slug: string;
-  title: string;
-  shortDescription: string;
-  fullDescription: string;
-  category: "fullstack" | "gamedev" | "ai" | "infra";
-  technologies: string[];
-  imageUrl: string;
-  liveUrl?: string;
-  githubUrl?: string;
-  status: "Concluído" | "Em andamento";
-  role: string;
-  highlights: string[];
-  credentials?: {
-    user: string;
-    pass: string;
-  };
-}
+import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
@@ -28,6 +11,11 @@ export const projects: Project[] = [
     category: "fullstack",
     technologies: ["Next.js", "Django", "Node.js", "Prisma", "Docker", "PostgreSQL"],
     imageUrl: "https://picsum.photos/seed/controlcar/800/600",
+    mediaUrls: [
+      "https://picsum.photos/seed/cc1/800/600",
+      "https://picsum.photos/seed/cc2/800/600",
+      "https://picsum.photos/seed/cc3/800/600"
+    ],
     status: "Concluído",
     role: "Arquiteto & Desenvolvedor Principal",
     highlights: [
@@ -35,10 +23,31 @@ export const projects: Project[] = [
       "Multi-tenancy com isolamento de dados por organização.",
       "Interface responsiva e intuitiva focada na produtividade do mecânico."
     ],
+    architecture: "Sistema distribuído utilizando Django para o core administrativo e Node.js para serviços de tempo real e microsserviços de inventário. A comunicação entre serviços é feita via RabbitMQ.",
+    challenges: "O maior desafio foi implementar o isolamento de dados multi-tenant garantindo que nenhuma organização pudesse acessar dados de outra, mesmo em tabelas compartilhadas no PostgreSQL.",
+    aiIntegration: "Utilização do Gemini para gerar automaticamente descrições de falhas técnicas com base em códigos de erro inseridos pelo mecânico.",
     credentials: {
       user: "admin@teste.com",
       pass: "123456"
     }
+  },
+  {
+    slug: "procedural-rpg-engine",
+    title: "RPG Procedural Engine (Godot + Houdini)",
+    shortDescription: "Engine customizada para geração de masmorras procedurais e assets 3D via Houdini Engine.",
+    fullDescription: "Desenvolvimento de uma pipeline que integra Houdini com Godot para gerar terrenos e estruturas complexas em tempo real, economizando centenas de horas de Level Design manual.",
+    category: "gamedev",
+    technologies: ["Godot", "C#", "Houdini", "Python", "GLSL Shaders"],
+    imageUrl: "https://picsum.photos/seed/rpgproc/800/600",
+    status: "Em andamento",
+    role: "Lead Game Developer",
+    highlights: [
+      "Integração procedural de malhas via Houdini Engine.",
+      "Algoritmos de pathfinding 3D customizados.",
+      "Sistemas de biome-generation baseados em ruído de Perlin."
+    ],
+    architecture: "Sistema modular em C# dentro da Godot Engine, consumindo HDA (Houdini Digital Assets) para spawns dinâmicos de geometria.",
+    challenges: "Sincronizar a geração de colisão em tempo real para malhas geradas proceduralmente sem impactar o frame rate."
   },
   {
     slug: "gestao-financeira",

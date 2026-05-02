@@ -15,10 +15,10 @@ export const Footer = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <a href="https://github.com/bernardoalvesaguiar" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
+          <a href="https://github.com/bernardoadca18" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
             <Github className="w-5 h-5" />
           </a>
-          <a href="https://linkedin.com/in/bernardoalvesaguiar" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
+          <a href="https://www.linkedin.com/in/bernardo-alves-aguiar-da-cunha-b06364218/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
             <Linkedin className="w-5 h-5" />
           </a>
           <a href="mailto:bernardoalvesaguiar16@gmail.com" className="text-slate-400 hover:text-white transition-colors">

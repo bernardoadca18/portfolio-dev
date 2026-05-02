@@ -1,13 +1,5 @@
 // File: src/data/skills.ts
-export interface Skill {
-  name: string;
-  icon: string;
-}
-
-export interface SkillCategory {
-  title: string;
-  skills: string[];
-}
+import { SkillCategory } from '@/types';
 
 export const skillCategories: SkillCategory[] = [
   {

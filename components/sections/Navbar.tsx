@@ -5,16 +5,19 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
-import { pt } from '@/locales/pt';
+
+import { useTranslation } from '@/context/LanguageContext';
+import { Languages } from 'lucide-react';
 
 export const Navbar = () => {
   const pathname = usePathname();
-  const t = pt.nav;
+  const { t, language, setLanguage } = useTranslation();
+  const n = t.nav;
 
   const links = [
-    { href: '/', label: t.home },
-    { href: '/projects', label: t.projects },
-    { href: '/about', label: t.about },
+    { href: '/', label: n.home },
+    { href: '/projects', label: n.projects },
+    { href: '/about', label: n.about },
   ];
 
   return (
@@ -41,6 +44,17 @@ export const Navbar = () => {
             </Link>
           );
         })}
+        
+        <div className="w-[1px] h-4 bg-white/10 mx-2" />
+        
+        <button
+          onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
+          className="flex items-center justify-center p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-all uppercase text-[10px] font-bold tracking-widest"
+          title="Alternar Idioma"
+        >
+          <Languages className="w-4 h-4 mr-1.5" />
+          {language}
+        </button>
       </div>
     </nav>
   );

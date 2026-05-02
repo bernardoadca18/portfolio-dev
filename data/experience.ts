@@ -1,11 +1,5 @@
 // File: src/data/experience.ts
-export interface Experience {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
-  type: "trabalho" | "educação";
-}
+import { Experience } from '@/types';
 
 export const timeline: Experience[] = [
   {

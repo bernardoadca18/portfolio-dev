@@ -41,5 +41,21 @@ export const pt = {
     title: "Sobre Mim",
     history: "História Profissional",
     timeline: "Experiência & Educação"
+  },
+  contact: {
+    title: "Propostas e Parcerias",
+    subtitle: "Espaço exclusivo para empresas, recrutadores e parcerias técnicas. Entre em contato para discutir projetos de alto impacto, consultoria ou oportunidades de carreira.",
+    name: "Nome Solicitante / Empresa",
+    email: "E-mail Corporativo",
+    message: "Descreva a proposta ou projeto",
+    send: "Enviar Proposta",
+    sending: "Processando...",
+    success: "Proposta enviada com sucesso. Retornarei em breve.",
+    error: "Erro no serviço. Por favor, tente via E-mail direto.",
+    validation: {
+      name: "Campo obrigatório.",
+      email: "E-mail inválido.",
+      message: "Por favor, forneça mais detalhes sobre o contato."
+    }
   }
 };
