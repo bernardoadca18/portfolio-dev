@@ -6,19 +6,20 @@ export interface Project {
   slug: string;
   title: string;
   shortDescription: string;
-  fullDescription: string;
+  fullDescription?: string; // Content is moving to MDX
+  mdxSource?: string; // For MDX content
   category: Category;
   technologies: string[];
   imageUrl: string;
-  mediaUrls?: string[]; // Added for gallery expansion
+  mediaUrls?: string[];
   liveUrl?: string;
   githubUrl?: string;
   status: "Concluído" | "Em andamento";
   role: string;
   highlights: string[];
-  architecture?: string; // Detailed architecture section
-  challenges?: string; // Challenges resolved
-  aiIntegration?: string; // AI integration details
+  architecture?: string;
+  challenges?: string;
+  aiIntegration?: string;
   credentials?: {
     user: string;
     pass: string;

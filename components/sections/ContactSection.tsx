@@ -6,20 +6,22 @@ import { motion } from 'motion/react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { pt } from '@/locales/pt';
+import { useTranslation } from '@/context/LanguageContext';
 import { Github, Linkedin, Mail, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-
-const contactSchema = z.object({
-  name: z.string().min(2, { message: pt.contact.validation.name }),
-  email: z.string().email({ message: pt.contact.validation.email }),
-  message: z.string().min(10, { message: pt.contact.validation.message }),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { sendEmailAction } from '@/app/actions/contact';
 
 export const ContactSection = () => {
-  const t = pt.contact;
+  const { t, language } = useTranslation();
+  const contactT = t.contact;
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const contactSchema = z.object({
+    name: z.string().min(2, { message: contactT.validation.name }),
+    email: z.string().email({ message: contactT.validation.email }),
+    message: z.string().min(10, { message: contactT.validation.message }),
+  });
+
+  type ContactFormData = z.infer<typeof contactSchema>;
 
   const {
     register,
@@ -32,13 +34,22 @@ export const ContactSection = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus('loading');
-    // Simulating API call
+    
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('message', data.message);
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log('Form data:', data);
-      setStatus('success');
-      reset();
-      setTimeout(() => setStatus('idle'), 5000);
+      const result = await sendEmailAction(formData);
+      
+      if (result.success) {
+        setStatus('success');
+        reset();
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+      }
     } catch (error) {
       console.error(error);
       setStatus('error');
@@ -46,7 +57,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="contact" className="py-40 px-6 max-w-7xl mx-auto">
       <div className="grid gap-16 lg:grid-cols-2">
         {/* Contact Info */}
         <motion.div
@@ -56,10 +67,10 @@ export const ContactSection = () => {
           className="space-y-8"
         >
           <div>
-            <h2 className="text-3xl font-bold md:text-4xl mb-6">{t.title}</h2>
+            <h2 className="text-3xl font-bold md:text-4xl mb-6">{contactT.title}</h2>
             <div className="w-20 h-1.5 bg-brand-primary rounded-full mb-8" />
             <p className="text-slate-400 text-lg leading-relaxed">
-              {t.subtitle}
+              {contactT.subtitle}
             </p>
           </div>
 
@@ -123,14 +134,14 @@ export const ContactSection = () => {
               className="absolute inset-0 z-10 bg-slate-950/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-8"
             >
               <CheckCircle2 className="w-16 h-16 text-emerald-500 mb-4" />
-              <h3 className="text-2xl font-bold mb-2">{t.success}</h3>
+              <h3 className="text-2xl font-bold mb-2">{contactT.success}</h3>
             </motion.div>
           )}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2">
-                {t.name}
+                {contactT.name}
               </label>
               <input
                 {...register('name')}
@@ -138,7 +149,7 @@ export const ContactSection = () => {
                 className={`w-full px-4 py-3 rounded-xl bg-white/5 border ${
                   errors.name ? 'border-red-500/50' : 'border-white/10'
                 } focus:border-brand-primary outline-none transition-all`}
-                placeholder="Seu nome"
+                placeholder={language === 'pt' ? 'Seu nome' : 'Your name'}
               />
               {errors.name && (
                 <p className="mt-2 text-xs text-red-500 flex items-center gap-1">
@@ -150,7 +161,7 @@ export const ContactSection = () => {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2">
-                {t.email}
+                {contactT.email}
               </label>
               <input
                 {...register('email')}
@@ -170,7 +181,7 @@ export const ContactSection = () => {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-2">
-                {t.message}
+                {contactT.message}
               </label>
               <textarea
                 {...register('message')}
@@ -178,7 +189,7 @@ export const ContactSection = () => {
                 className={`w-full px-4 py-3 rounded-xl bg-white/5 border ${
                   errors.message ? 'border-red-500/50' : 'border-white/10'
                 } focus:border-brand-primary outline-none transition-all resize-none`}
-                placeholder="Como posso te ajudar?"
+                placeholder={language === 'pt' ? 'Como posso ajudar?' : 'How can I help?'}
               />
               {errors.message && (
                 <p className="mt-2 text-xs text-red-500 flex items-center gap-1">
@@ -196,19 +207,19 @@ export const ContactSection = () => {
               {status === 'loading' ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  {t.sending}
+                  {contactT.sending}
                 </>
               ) : (
                 <>
                   <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  {t.send}
+                  {contactT.send}
                 </>
               )}
             </button>
             
             {status === 'error' && (
               <p className="text-center text-sm text-red-500 font-medium">
-                {t.error}
+                {contactT.error}
               </p>
             )}
           </form>

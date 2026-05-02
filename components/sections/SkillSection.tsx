@@ -4,17 +4,18 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { skillCategories } from '@/data/skills';
-import { pt } from '@/locales/pt';
+import { useTranslation } from '@/context/LanguageContext';
 import { Badge } from '@/components/ui/Badge';
 
 export const SkillSection = () => {
-  const t = pt.skills;
+  const { t } = useTranslation();
+  const skillT = t.skills;
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
+    <section className="py-32 px-6 max-w-7xl mx-auto">
       <div className="mb-16 text-center">
-        <h2 className="text-3xl font-bold md:text-4xl">{t.title}</h2>
-        <div className="w-20 h-1.5 bg-brand-primary mx-auto mt-4 rounded-full" />
+        <h2 className="text-4xl font-bold md:text-5xl tracking-tighter">{skillT.title}</h2>
+        <div className="w-16 h-1 bg-brand-primary mx-auto mt-6 rounded-full" />
       </div>
       
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

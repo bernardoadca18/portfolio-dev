@@ -3,19 +3,19 @@ import { SkillCategory } from '@/types';
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Fullstack & Web",
-    skills: ["Next.js", "React", "TypeScript", "Node.js", "Django", "Spring Boot", "TailwindCSS"]
+    title: "Desenvolvimento de Software",
+    skills: ["Next.js", "React", "React Native", "TypeScript", "Node.js", "Django", "Spring Boot", "TailwindCSS"]
   },
   {
     title: "Game Development",
     skills: ["Unity", "Godot", "C#", "Houdini", "Procedural Modeling", "Shader Lab"]
   },
   {
-    title: "IA & Especialidades",
-    skills: ["Gemini API", "Stable Diffusion", "ComfyUI", "LLM Integration", "TRELLIS2"]
+    title: "Inteligência Artificial",
+    skills: ["Google Gemini", "Stable Diffusion", "ComfyUI", "LLM Integration", "Automated Workflows"]
   },
   {
-    title: "Infra & DevOps",
-    skills: ["Docker", "AWS", "Proxmox", "Linux Server", "Zabbix", "CFTV/IP Networking"]
+    title: "Infraestrutura & Redes",
+    skills: ["Docker", "AWS", "Proxmox", "Linux Server", "Zabbix", "IP Networking"]
   }
 ];

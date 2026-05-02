@@ -7,45 +7,45 @@ export const pt = {
     contact: "Contato"
   },
   hero: {
-    greeting: "Olá, eu sou",
-    name: "Bernardo Cunha",
-    role: "Fullstack Engineer & Game Developer",
-    description: "Construindo sistemas robustos, inteligência artificial e experiências interativas de alto nível.",
+    greeting: "Software Engineer | IT Infrastructure",
+    name: "Bernardo Alves Aguiar da Cunha",
+    role: "Fullstack Engineer & Infrastructure Specialist",
+    description: "Foco em desenvolvimento de sistemas escaláveis, arquitetura de redes e automação de processos corporativos.",
     cta_projects: "Ver Projetos",
     cta_cv: "Baixar CV"
   },
   skills: {
-    title: "Minhas Competências",
+    title: "Especialidades Técnicas",
     categories: {
-      web: "Web & SaaS",
-      gamedev: "Game Development",
-      ai: "IA & Dados",
+      web: "Desenvolvimento & SaaS",
+      gamedev: "GameDev",
+      ai: "IA Aplicada",
       infra: "Infra & DevOps"
     }
   },
   projects: {
-    title: "Projetos em Destaque",
-    all: "Todos",
-    fullstack: "Fullstack & Web",
-    gamedev: "GameDev",
-    ai: "IA & Dados",
-    infra: "Infra & DevOps",
-    details: "Ver Detalhes",
-    demo: "Demo Ao Vivo",
-    github: "GitHub",
-    architecture: "Arquitetura & Solução",
-    credentials: "Credenciais de Teste",
-    setup: "Instruções de Instalação"
+    title: "Portfólio de Projetos",
+    all: "Ver Todos",
+    fullstack: "Software & Web",
+    gamedev: "Gamedev",
+    ai: "IA & Automação",
+    infra: "Infraestrutura",
+    details: "Ver detalhes",
+    demo: "Acessar",
+    github: "Repositório",
+    architecture: "Arquitetura do Sistema",
+    credentials: "Acesso de Teste",
+    setup: "Configuração"
   },
   about: {
-    title: "Sobre Mim",
-    history: "História Profissional",
-    timeline: "Experiência & Educação"
+    title: "Trajetória",
+    history: "Experiência Técnica",
+    timeline: "Formação e Carreira"
   },
   contact: {
-    title: "Propostas e Parcerias",
-    subtitle: "Espaço exclusivo para empresas, recrutadores e parcerias técnicas. Entre em contato para discutir projetos de alto impacto, consultoria ou oportunidades de carreira.",
-    name: "Nome Solicitante / Empresa",
+    title: "Propostas e Contato",
+    subtitle: "Se você tem um projeto em mente, uma oportunidade profissional ou deseja discutir parcerias técnicas, sinta-se à vontade para entrar em contato.",
+    name: "Seu Nome / Empresa",
     email: "E-mail Corporativo",
     message: "Descreva a proposta ou projeto",
     send: "Enviar Proposta",
