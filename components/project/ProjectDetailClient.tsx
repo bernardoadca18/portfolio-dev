@@ -1,4 +1,3 @@
-// File: components/project/ProjectDetailClient.tsx
 'use client';
 
 import React from 'react';

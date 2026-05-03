@@ -1,4 +1,3 @@
-// File: app/projects/[slug]/page.tsx
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Navbar } from '@/components/sections/Navbar';

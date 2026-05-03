@@ -1,4 +1,3 @@
-// File: app/page.tsx
 import type { Metadata } from 'next';
 import { Navbar } from '@/components/sections/Navbar';
 import { Hero } from '@/components/sections/Hero';

@@ -1,13 +1,11 @@
-// File: types/index.ts
-
 export type Category = 'fullstack' | 'gamedev' | 'ai' | 'infra';
 
 export interface Project {
   slug: string;
   title: string;
   shortDescription: string;
-  fullDescription?: string; // Content is moving to MDX
-  mdxSource?: string; // For MDX content
+  fullDescription?: string;
+  mdxSource?: string;
   category: Category;
   technologies: string[];
   imageUrl: string;
